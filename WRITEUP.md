@@ -37,7 +37,7 @@ The difference between model accuracy pre- and post-conversion was...
 
 
 => The size of the model pre-conversion model was 142mb while the size after conversion,
-post-conversion is the .bin file plus the .xml file was only 50.925mb
+post-conversion is the .bin file plus the .xml file was only 100.226mb
 
 => The minimum inference time for the post-converted model was abit high at about 567ms while the maximum was about 933ms
 
@@ -101,6 +101,7 @@ python /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_mod
 # Step 4
 You can create a new file directory in the app directory and move the generated .xml and .bin file into created model directory.or just leave the .xml file and .bin file in the
 faster_rcnn_inception_v2_coco_2018_01_28 folder and redirect the file path directory to it
+so i created a folder: files and moved my binary and xml files there
 
 # Setting up for UI app
 **To install the user interface 
@@ -111,7 +112,7 @@ source /opt/intel/openvino/bin/setupvars.sh -pyver 3.5
 
 **Running the app for CPU
 ```
-python3 main.py -i resources/Pedestrain_Detect_2_1_1.mp4 -m ./faster_rcnn_inception_v2_coco_2018_01_28/frozen_inference_graph.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU -pt 0.6 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://localhost:8090/fac.ffm
+python3 main.py -i resources/Pedestrain_Detect_2_1_1.mp4 -m ./files/frozen_inference_graph.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU -pt 0.6 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://localhost:8090/fac.ffm
 ```
 To see the output on a web based interface, open the link [http://localhost:8080](http://localhost:8080/) in a browser.
 
