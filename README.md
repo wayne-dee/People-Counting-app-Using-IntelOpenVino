@@ -24,7 +24,6 @@ You will choose a model to use and convert it with the Model Optimizer.
 
 * 6th to 10th generation Intel® Core™ processor with Iris® Pro graphics or Intel® HD Graphics.
 * OR use of Intel® Neural Compute Stick 2 (NCS2)
-* OR Udacity classroom workspace for the related course
 
 ### Software
 
@@ -39,7 +38,7 @@ You will choose a model to use and convert it with the Model Optimizer.
 
 ### Install Intel® Distribution of OpenVINO™ toolkit
 
-Utilize the classroom workspace, or refer to the relevant instructions for your operating system for this step.
+Utilize the relevant instructions for your operating system for this step.
 
 - [Linux/Ubuntu](./linux-setup.md)
 - [Mac](./mac-setup.md)
@@ -47,7 +46,7 @@ Utilize the classroom workspace, or refer to the relevant instructions for your 
 
 ### Install Nodejs and its dependencies
 
-Utilize the classroom workspace, or refer to the relevant instructions for your operating system for this step.
+Utilize the relevant instructions for your operating system for this step.
 
 - [Linux/Ubuntu](./linux-setup.md)
 - [Mac](./mac-setup.md)
@@ -89,7 +88,6 @@ It is up to you to decide on what model to use for the application. You need to 
 
 Note that you may need to do additional processing of the output to handle incorrect detections, such as adjusting confidence threshold or accounting for 1-2 frames where the model fails to see a person already counted and would otherwise double count.
 
-**If you are otherwise unable to find a suitable model after attempting and successfully converting at least three other models**, you can document in your write-up what the models were, how you converted them, and why they failed, and then utilize any of the Intel® Pre-Trained Models that may perform better.
 
 ## Run the application
 
@@ -155,7 +153,7 @@ Though by default application runs on CPU, this can also be explicitly specified
 ```
 python main.py -i resources/Pedestrian_Detect_2_1_1.mp4 -m your-model.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU -pt 0.6 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
 ```
-If you are in the classroom workspace, use the “Open App” button to view the output. If working locally, to see the output on a web based interface, open the link [http://0.0.0.0:3004](http://0.0.0.0:3004/) in a browser.
+If working locally, to see the output on a web based interface, open the link [http://0.0.0.0:3004](http://0.0.0.0:3004/) in a browser.
 
 #### Running on the Intel® Neural Compute Stick
 
@@ -185,8 +183,7 @@ User has to give `-video_size` command line argument according to the input as i
 
 ## A Note on Running Locally
 
-The servers herein are configured to utilize the Udacity classroom workspace. As such,
-to run on your local machine, you will need to change the below file:
+To run on your local machine, you will need to change the below file:
 
 ```
 webservice/ui/src/constants/constants.js
